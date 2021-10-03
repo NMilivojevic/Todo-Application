@@ -1,5 +1,13 @@
 (function () {
 
+  const TODOController = {
+
+      addItemToList: function () {
+        
+      }
+  }
+
+// UI CONTROLLER
   const UIController = {
 
     domEle: {
@@ -7,7 +15,7 @@
       list: ".todo-list",
     },
 
-    
+
   };
 
   const MainController = {

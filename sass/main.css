@@ -123,7 +123,7 @@ p {
   width: 35rem;
   margin: 0 auto;
   position: relative;
-  top: -20rem;
+  top: -15rem;
 }
 
 .container__header {
@@ -219,6 +219,14 @@ p {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 1.5rem;
+}
+
+body.dark .container {
+  color: #fafafa;
+}
+
+body.dark .container__todos {
+  background-color: #484b6a;
 }
 
 input[type="checkbox"]:checked + .custom-checkbox {

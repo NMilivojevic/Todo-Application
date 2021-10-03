@@ -26,7 +26,7 @@
   width: 35rem;
   margin: 0 auto;
   position: relative;
-  top: -20rem;
+  top: -15rem;
 
   &__header {
     display: flex;
@@ -89,5 +89,17 @@
     display: flex;
     justify-content: space-between;
     padding: 1.5rem;
+  }
+}
+
+body.dark {
+
+  .container {
+    
+    color: $very-light-gray;
+
+    &__todos {
+      background-color: $very-dark-grayish-blue;
+    }
   }
 }
