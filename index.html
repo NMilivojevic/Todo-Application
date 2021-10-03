@@ -15,12 +15,15 @@
 <body>
 
   <div class="wrapper">
+
     <figure class="wrapper__img">
-      <img src="./images/bg-desktop-light.jpg" alt="bg desktop light image">
+      <!-- <img src="./images/bg-desktop-light.jpg" alt="bg desktop light image"> -->
     </figure>
 
     <div class="container">
+
       <div class="container__header">
+
         <h1>TODO</h1>
         <div class="theme theme-light">
           <img src="./images/icon-moon.svg" alt="Moon icon">
@@ -29,10 +32,65 @@
 
       </div>
 
+      <div class="container__form" id="form">
+
+        <label>
+          <input type="radio" name="light" >
+          <span class="custom-checkbox">
+            <img src="./images/icon-check.svg" alt="checkmark">
+          </span>
+        </label>
+        <input type="text" name="todo" id="todo" placeholder="Create a new todo" autocomplete="off">
+
+      </div>
+
+      <!-- <div class="container__todos">
+
+        <ul class="todo-list">
+
+          <li class="todo" draggable="true">
+
+            <label>
+              <input type="checkbox" name="light">
+              <span class="custom-checkbox">
+                <img src="./images/icon-check.svg" alt="checkmark">
+              </span>
+            </label>
+            <span class="todo-text">Completed online Javascript course</span>
+
+          </li>
+
+        </ul>
+
+      </div>
+
+      <div class="filters">
+
+        <span class="count">5 items left</span>
+        <div class="links">
+          <a href="#" id="all">All</a>
+          <a href="#" id="active">Active</a>
+          <a href="#" id="completed">Completed</a>
+        </div>
+        <a href="#" class="clear-completed">Clear Completed</a>
+
+      </div>
+
+      <div class="links--2">
+
+        <a href="#" id="all">All</a>
+        <a href="#" id="active">Active</a>
+        <a href="#" id="completed">Completed</a>
+
+      </div>
+
+      <p>Drag and drop to reorder list</p> -->
+
 
     </div>
 
   </div>
+
   <script src="./js/app.js"></script>
 
 </body>

@@ -1,3 +1,4 @@
+
 .wrapper {
   width: 100%;
   height: 100vh;
@@ -25,5 +26,44 @@
 .container {
   width: 35rem;
   margin: 0 auto;
-  margin-top: -10rem;
+  position: relative;
+  top: -15rem;
+
+  &__header {
+    display: flex;
+     justify-content: space-between;
+  }
+
+  &__form {
+    margin-top: 3rem;
+    position: relative;
+    background-color: $very-light-gray;
+    display: flex;    
+    justify-content: center;
+    align-content: center;
+    border-radius: 6px;
+    
+    input[type="text"] {
+      width: 100%;
+      flex: 1;
+      background:none;
+      color: $dark-grayish-blue;
+      font-family: "Josefin sans", sans-serif;
+      font-size: $default-font-size;
+      border-radius: 8px;
+      height: 45px;
+      border: none;
+      outline: none;
+
+      &::placeholder {
+        color: $dark-grayish-blue;
+      }
+    }
+
+    label {
+      display: flex;
+      justify-content: flex-start;
+      padding: 1rem;
+    }
+  }
 }
