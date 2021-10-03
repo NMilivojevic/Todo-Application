@@ -1,3 +1,7 @@
 {
-  "liveServer.settings.multiRootWorkspaceName": "todo app"
+  "liveServer.settings.multiRootWorkspaceName": "todo app",
+  "cSpell.words": [
+    "Desaturated",
+    "preconnect"
+  ]
 }
