@@ -229,6 +229,11 @@ body.dark .container__todos {
   background-color: #484b6a;
 }
 
+input[type="checkbox"] {
+  opacity: 0;
+  position: absolute;
+}
+
 input[type="checkbox"]:checked + .custom-checkbox {
   background: -webkit-gradient(linear, left top, left bottom, from(#57ddff), to(#c058f3));
   background: linear-gradient(to bottom, #57ddff, #c058f3);
@@ -236,11 +241,6 @@ input[type="checkbox"]:checked + .custom-checkbox {
 
 input[type="checkbox"]:checked + .custom-checkbox img {
   opacity: 1;
-}
-
-input[type="checkbox"] {
-  opacity: 0;
-  position: absolute;
 }
 
 .custom-checkbox {
