@@ -21,9 +21,9 @@ html {
 }
 
 body {
-  font-family: "Josefin sans", sans-serif;
+  font-family: "Josefin-sans", sans-serif;
   font-size: $default-font-size;
-  font-weight: $default-font-weight;
+  font-weight: $normal-font-weight;
 
   @include respond(md) {
     font-size: 16px;
