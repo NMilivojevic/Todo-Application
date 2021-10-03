@@ -59,6 +59,9 @@
             </span>
           </label>
           <span class="todo-text">${data.tekst}</span>
+          <span class="custom-cross">
+            <img src="./images/icon-cross.svg" alt="icon delete">
+          </span>
         </li>
         `;
 
@@ -88,6 +91,7 @@
           if (e.keyCode == 13) {
             const id = TODOController.todoList.length + 1;
             TODOController.addTodo(UIController.getInput(), false, id);
+            document.querySelector(UIController.domEle.input).value = '';
           }
         });
 

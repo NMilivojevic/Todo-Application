@@ -41,4 +41,11 @@ input[type="checkbox"]:checked + .custom-checkbox {
   label {
     padding: 1.5rem;
   }
+
+  .custom-cross {
+    padding: 2rem;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+  }
 }

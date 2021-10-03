@@ -277,4 +277,11 @@ input[type="checkbox"]:checked + .custom-checkbox img {
 .todo label {
   padding: 1.5rem;
 }
+
+.todo .custom-cross {
+  padding: 2rem;
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+}
 /*# sourceMappingURL=main.css.map */
