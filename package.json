@@ -1,0 +1,32 @@
+{
+  "name": "todo-app",
+  "version": "1.0.0",
+  "description": "Personal project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NMilivojevic/todo-app.git"
+  },
+  "keywords": [
+    "todo",
+    "app",
+    "nevena"
+  ],
+  "author": "Nevena",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NMilivojevic/todo-app/issues"
+  },
+  "homepage": "https://github.com/NMilivojevic/todo-app#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-sass": "^5.0.0",
+    "sass": "^1.42.1"
+  },
+  "dependencies": {
+    "browser-sync": "^2.27.5"
+  }
+}

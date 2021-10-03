@@ -91,4 +91,37 @@ p {
   width: 2rem;
   cursor: pointer;
 }
+
+.wrapper {
+  width: 100%;
+  height: 100vh;
+}
+
+.wrapper__img {
+  width: 100%;
+  background-image: url("../images/bg-desktop-light.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 45vh;
+}
+
+@media only screen and (max-width: 900px) {
+  .wrapper__img {
+    background-image: url("../images/bg-mobile-light.jpg");
+    min-height: 35vh;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .wrapper__img {
+    min-height: 30vh;
+  }
+}
+
+.container {
+  width: 35rem;
+  margin: 0 auto;
+  margin-top: -10rem;
+}
 /*# sourceMappingURL=main.css.map */
