@@ -1,8 +1,9 @@
 (function () {
   const TODOController = {
     todoList: [],
-    addTodo: function (tekst, status) {
+    addTodo: function (tekst, status, id) {
       this.todoList.push({
+        id: id,
         tekst: tekst,
         status: status,
       });
@@ -14,11 +15,22 @@
       const leftTodos = this.todoList.filter((todo) => {
         return !todo.status;
       });
-      
-      if(leftTodos.length < 0) return;
-      
+
+      if (leftTodos.length < 0) return;
+
       const count = document.querySelector(UIController.domEle.count);
-      count.textContent = `${leftTodos.length} items left`;
+      count.textContent = `${leftTodos.length} item${
+        leftTodos.length == 1 ? "" : "s"
+      } left`;
+    },
+
+    updateStatus: function (status, element) {
+      const id = element.id;
+      TODOController.todoList.forEach((todo, index) => {
+        if (id == todo.id) {
+          todo.status = status;
+        }
+      });
     },
   };
 
@@ -28,6 +40,7 @@
       list: ".todo-list",
       form: "#form",
       count: ".count",
+      checkbox: 'input[type="checkbox"]',
     },
 
     getInput: function () {
@@ -38,7 +51,7 @@
       // prikazivanje u listi tj renderovanje
       let markUp;
       markUp = `
-        <li class="todo" draggable="true">
+        <li class="todo" draggable="true" id="${data.id}">
           <label>
             <input type="checkbox" name="light" ${data.status ? "checked" : ""}>
             <span class="custom-checkbox">
@@ -53,11 +66,13 @@
         .querySelector(this.domEle.list)
         .insertAdjacentHTML("beforeend", markUp);
       TODOController.leftTodos();
+      MainController.setCheckboxEvent();
     },
 
     displayTodo: function () {
       const todos = TODOController.todoList;
       document.querySelector(this.domEle.list).innerHTML = "";
+
       todos.forEach((todo, index) => {
         this.addTodoToList(todo);
       });
@@ -71,7 +86,8 @@
         .querySelector(UIController.domEle.input)
         .addEventListener("keypress", function (e) {
           if (e.keyCode == 13) {
-            TODOController.addTodo(UIController.getInput(), false);
+            const id = TODOController.todoList.length + 1;
+            TODOController.addTodo(UIController.getInput(), false, id);
           }
         });
 
@@ -80,6 +96,27 @@
         .querySelector(UIController.domEle.form)
         .addEventListener("submit", function (e) {
           e.preventDefault();
+        });
+
+        MainController.setCheckboxEvent();
+    },
+
+    setCheckboxEvent: function () {
+      // kada se cekira task iz liste
+      document
+        .querySelectorAll(UIController.domEle.checkbox)
+        .forEach((checkbox) => {
+          checkbox.addEventListener("click", function (e) {
+            const todoElement = e.target.closest('li');
+            if(e.target.checked) {
+              TODOController.updateStatus(true, todoElement);
+            } else {
+              TODOController.updateStatus(false, todoElement);
+            }
+
+            TODOController.leftTodos();
+
+          });
         });
     },
   };
