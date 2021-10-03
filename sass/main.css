@@ -25,7 +25,7 @@ html {
 }
 
 body {
-  font-family: "Josefin-sans", sans-serif;
+  font-family: "Josefin sans", sans-serif;
   font-size: 18px;
   font-weight: 400;
 }
@@ -123,7 +123,7 @@ p {
   width: 35rem;
   margin: 0 auto;
   position: relative;
-  top: -15rem;
+  top: -20rem;
 }
 
 .container__header {
@@ -133,6 +133,9 @@ p {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .container__form {
@@ -145,8 +148,9 @@ p {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   border-radius: 6px;
 }
 
@@ -188,19 +192,45 @@ p {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  padding: 1rem;
+  padding: 1.5rem;
 }
 
-input[type="radio"]:checked + .custom-checkbox {
+.container__todos {
+  width: 100%;
+  margin-top: 3rem;
+  background-color: #fafafa;
+  border-radius: 6px;
+}
+
+.container__todos .todo-list {
+  list-style: none;
+}
+
+.container__todos .todo-list label input {
+  opacity: 0;
+  position: absolute;
+}
+
+.container .filters {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 1.5rem;
+}
+
+input[type="checkbox"]:checked + .custom-checkbox {
   background: -webkit-gradient(linear, left top, left bottom, from(#57ddff), to(#c058f3));
   background: linear-gradient(to bottom, #57ddff, #c058f3);
 }
 
-input[type="radio"]:checked + .custom-checkbox img {
+input[type="checkbox"]:checked + .custom-checkbox img {
   opacity: 1;
 }
 
-input[type="radio"] {
+input[type="checkbox"] {
   opacity: 0;
   position: absolute;
 }
@@ -208,8 +238,8 @@ input[type="radio"] {
 .custom-checkbox {
   background-color: transparent;
   border: 1px solid #e4e5f1;
-  width: 18px;
-  height: 18px;
+  width: 22px;
+  height: 22px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -219,11 +249,24 @@ input[type="radio"] {
   -ms-flex-line-pack: center;
       align-content: center;
   border-radius: 50px;
-  padding: 3px;
 }
 
 .custom-checkbox img {
   opacity: 0;
-  padding: 1px;
+  padding: 4px;
+}
+
+.todo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid #e4e5f1;
+}
+
+.todo label {
+  padding: 1.5rem;
 }
 /*# sourceMappingURL=main.css.map */

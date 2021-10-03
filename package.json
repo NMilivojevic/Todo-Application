@@ -4,7 +4,7 @@
   "description": "Personal project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start-dev": "gulp watch"
   },
   "repository": {
     "type": "git",
@@ -22,11 +22,10 @@
   },
   "homepage": "https://github.com/NMilivojevic/todo-app#readme",
   "devDependencies": {
+    "browser-sync": "^2.27.5",
     "gulp": "^4.0.2",
     "gulp-sass": "^5.0.0",
     "sass": "^1.42.1"
   },
-  "dependencies": {
-    "browser-sync": "^2.27.5"
-  }
+  "dependencies": {}
 }
