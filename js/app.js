@@ -46,6 +46,7 @@
       count: ".count",
       checkbox: 'input[type="checkbox"]',
       delete: ".custom-cross",
+      clearCompleted: '.clear-completed'
     },
 
     getInput: function () {
@@ -88,6 +89,7 @@
   };
 
   const MainController = {
+
     setAllEvents: function () {
       // dogadjaj unos u input polje
       document
@@ -106,6 +108,19 @@
         .addEventListener("submit", function (e) {
           e.preventDefault();
         });
+
+
+    // brisanje svih all completed 
+    document.querySelector(UIController.domEle.clearCompleted).addEventListener('click', function () {
+      const completed = TODOController.todoList.filter(todo => {
+        return todo.status;
+      });
+      completed.forEach(completed => {
+        const index = TODOController.todoList.indexOf(completed);
+        TODOController.todoList.splice(index, 1);
+      });
+      UIController.displayTodo();
+    });
 
       MainController.setCheckboxEvent();
     },
