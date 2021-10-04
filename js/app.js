@@ -36,6 +36,18 @@
         }
       });
     },
+
+    getAll: function () {
+      return this.todoList;
+    },
+
+    getActive: function () {
+      return this.todoList.filter((todo) => !todo.status);
+    },
+
+    getCompleted: function () {
+      return this.todoList.filter((todo) => todo.status);
+    },
   };
 
   const UIController = {
@@ -46,7 +58,10 @@
       count: ".count",
       checkbox: 'input[type="checkbox"]',
       delete: ".custom-cross",
-      clearCompleted: '.clear-completed'
+      clearCompleted: ".clear-completed",
+      filterAll: "#all",
+      filterActive: "#active",
+      filterCompleted: "#completed",
     },
 
     getInput: function () {
@@ -81,7 +96,13 @@
     displayTodo: function () {
       const todos = TODOController.todoList;
       document.querySelector(this.domEle.list).innerHTML = "";
+      todos.forEach((todo, index) => {
+        this.addTodoToList(todo);
+      });
+    },
 
+    displayFilter: function (todos) {
+      document.querySelector(this.domEle.list).innerHTML = "";
       todos.forEach((todo, index) => {
         this.addTodoToList(todo);
       });
@@ -89,7 +110,6 @@
   };
 
   const MainController = {
-
     setAllEvents: function () {
       // dogadjaj unos u input polje
       document
@@ -109,18 +129,46 @@
           e.preventDefault();
         });
 
+      // clear all completed
+      document
+        .querySelector(UIController.domEle.clearCompleted)
+        .addEventListener("click", function () {
+          const completed = TODOController.todoList.filter((todo) => {
+            return todo.status;
+          });
 
-    // brisanje svih all completed 
-    document.querySelector(UIController.domEle.clearCompleted).addEventListener('click', function () {
-      const completed = TODOController.todoList.filter(todo => {
-        return todo.status;
-      });
-      completed.forEach(completed => {
-        const index = TODOController.todoList.indexOf(completed);
-        TODOController.todoList.splice(index, 1);
-      });
-      UIController.displayTodo();
-    });
+          if (completed.length <= 0) return;
+
+          completed.forEach((completed) => {
+            const index = TODOController.todoList.indexOf(completed);
+            TODOController.todoList.splice(index, 1);
+          });
+          UIController.displayTodo();
+        });
+
+      // filter all
+      document
+        .querySelector(UIController.domEle.filterAll)
+        .addEventListener("click", function () {
+          const filterTodos = TODOController.getAll();
+          UIController.displayFilter(filterTodos);
+        });
+
+      // filter active
+      document
+        .querySelector(UIController.domEle.filterActive)
+        .addEventListener("click", function () {
+          const filterTodos = TODOController.getActive();
+          UIController.displayFilter(filterTodos);
+        });
+
+      // filter completed
+      document
+        .querySelector(UIController.domEle.filterCompleted)
+        .addEventListener("click", function () {
+          const filterTodos = TODOController.getCompleted();
+          UIController.displayFilter(filterTodos);
+        });
 
       MainController.setCheckboxEvent();
     },
