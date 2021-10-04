@@ -16,11 +16,15 @@
         return !todo.status;
       });
 
-      if (leftTodos.length < 0) return;
+      const numOfItems = leftTodos.length;
+
+      if (numOfItems < 0) {
+        numOfItems = 0;
+      }
 
       const count = document.querySelector(UIController.domEle.count);
-      count.textContent = `${leftTodos.length} item${
-        leftTodos.length == 1 ? "" : "s"
+      count.textContent = `${numOfItems} item${
+        numOfItems == 1 ? "" : "s"
       } left`;
     },
 
@@ -41,6 +45,7 @@
       form: "#form",
       count: ".count",
       checkbox: 'input[type="checkbox"]',
+      delete: ".custom-cross",
     },
 
     getInput: function () {
@@ -91,7 +96,7 @@
           if (e.keyCode == 13) {
             const id = TODOController.todoList.length + 1;
             TODOController.addTodo(UIController.getInput(), false, id);
-            document.querySelector(UIController.domEle.input).value = '';
+            document.querySelector(UIController.domEle.input).value = "";
           }
         });
 
@@ -102,7 +107,7 @@
           e.preventDefault();
         });
 
-        MainController.setCheckboxEvent();
+      MainController.setCheckboxEvent();
     },
 
     setCheckboxEvent: function () {
@@ -111,17 +116,32 @@
         .querySelectorAll(UIController.domEle.checkbox)
         .forEach((checkbox) => {
           checkbox.addEventListener("click", function (e) {
-            const todoElement = e.target.closest('li');
-            if(e.target.checked) {
+            const todoElement = e.target.closest("li");
+            if (e.target.checked) {
               TODOController.updateStatus(true, todoElement);
             } else {
               TODOController.updateStatus(false, todoElement);
             }
 
             TODOController.leftTodos();
-
           });
         });
+
+      // za brisanje taskova
+      document.querySelectorAll(UIController.domEle.delete).forEach((cross) => {
+        cross.addEventListener("click", function (e) {
+          const id = e.target.closest("li").id;
+
+          const matches = TODOController.todoList.filter((todo) => {
+            return todo.id == id;
+          })[0];
+          const index = TODOController.todoList.indexOf(matches);
+          if (index < 0) return;
+          TODOController.todoList.splice(index, 1);
+          UIController.displayTodo();
+          TODOController.leftTodos();
+        });
+      });
     },
   };
 

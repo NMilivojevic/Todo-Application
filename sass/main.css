@@ -218,7 +218,7 @@ p {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 1.5rem;
+  padding: 3rem;
 }
 
 body.dark .container {
