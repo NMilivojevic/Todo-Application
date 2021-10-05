@@ -45,6 +45,12 @@
       return this.todoList.filter((todo) => !todo.status);
     },
 
+    // getActive: function () {
+    //   return this.todoList.filter((todo) => {
+    //     return !todo.status;
+    //   });
+    // },
+
     getCompleted: function () {
       return this.todoList.filter((todo) => todo.status);
     },
@@ -152,6 +158,10 @@
         .addEventListener("click", function () {
           const filterTodos = TODOController.getAll();
           UIController.displayFilter(filterTodos);
+          document.querySelector(UIController.domEle.count).textContent =
+          filterTodos.length <= 1
+              ? `${filterTodos.length} item left`
+              : `${filterTodos.length} items left`;
         });
 
       // filter active
@@ -161,6 +171,10 @@
           const filterTodos = TODOController.getActive();
           if (filterTodos.length <= 0) return;
           UIController.displayFilter(filterTodos);
+          document.querySelector(UIController.domEle.count).textContent =
+            filterTodos.length <= 1
+              ? `${filterTodos.length} item left`
+              : `${filterTodos.length} items left`;
         });
 
       // filter completed
@@ -170,6 +184,10 @@
           const filterTodos = TODOController.getCompleted();
           if (filterTodos.length <= 0) return;
           UIController.displayFilter(filterTodos);
+          document.querySelector(UIController.domEle.count).textContent =
+            filterTodos.length <= 1
+              ? `${filterTodos.length} item completed`
+              : `${filterTodos.length} items completed`;
         });
 
       MainController.setCheckboxEvent();
