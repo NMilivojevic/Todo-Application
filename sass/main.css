@@ -284,4 +284,8 @@ input[type="checkbox"]:checked + .custom-checkbox img {
   right: 0;
   cursor: pointer;
 }
+
+.sortable-drag {
+  background-color: #d2d3db;
+}
 /*# sourceMappingURL=main.css.map */

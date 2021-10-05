@@ -230,5 +230,12 @@
 
   window.addEventListener("load", function () {
     MainController.setAllEvents();
+
+    // Adds draggable functionality with animated swapping
+    new Sortable(document.querySelector(UIController.domEle.list), {
+      animation: 350,
+      chosenClass: "sortable-chosen",
+      dragClass: "sortable-drag"
+    });
   });
 })();
