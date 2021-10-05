@@ -159,6 +159,7 @@
         .querySelector(UIController.domEle.filterActive)
         .addEventListener("click", function () {
           const filterTodos = TODOController.getActive();
+          if (filterTodos.length <= 0) return;
           UIController.displayFilter(filterTodos);
         });
 
@@ -167,6 +168,7 @@
         .querySelector(UIController.domEle.filterCompleted)
         .addEventListener("click", function () {
           const filterTodos = TODOController.getCompleted();
+          if (filterTodos.length <= 0) return;
           UIController.displayFilter(filterTodos);
         });
 
