@@ -26,6 +26,12 @@
   margin: 0 auto;
   position: relative;
   top: -15rem;
+  @include respond(sm) {
+    width: 27rem;
+  }
+  @include respond(xs) {
+    width: 22rem;
+  }
 
   &__header {
     display: flex;
@@ -88,6 +94,26 @@
     display: flex;
     justify-content: space-between;
     padding: 3rem;
+    .links {
+      a {
+        padding: 0px .5rem;
+        color: rgb(94, 212, 255);
+        &:hover {
+          color: rgb(255, 85, 85);
+        }
+      }
+    }
+    a {
+      color: rgb(211, 155, 12);
+      &:hover {
+        color: red;
+      }
+    }
+    @include respond(sm) {
+      flex-direction: column;
+      align-items: center;
+      line-height: 2;
+    }
   }
 }
 
