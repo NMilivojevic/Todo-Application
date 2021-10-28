@@ -108,7 +108,6 @@ p {
 
 @media only screen and (max-width: 900px) {
   .wrapper__img {
-    background-image: url("../images/bg-mobile-light.jpg");
     min-height: 35vh;
   }
 }

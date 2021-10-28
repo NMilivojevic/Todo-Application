@@ -12,7 +12,6 @@
     min-height: 45vh;
 
     @include respond(md) {
-      background-image: url("../images/bg-mobile-light.jpg");
       min-height: 35vh;
     }
 
