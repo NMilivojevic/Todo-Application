@@ -99,7 +99,7 @@ p {
 
 .wrapper__img {
   width: 100%;
-  background-image: url("../images/bg-desktop-light.jpg");
+  background-color: #27ae60;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -235,8 +235,8 @@ input[type="checkbox"] {
 }
 
 input[type="checkbox"]:checked + .custom-checkbox {
-  background: -webkit-gradient(linear, left top, left bottom, from(#57ddff), to(#c058f3));
-  background: linear-gradient(to bottom, #57ddff, #c058f3);
+  background: -webkit-gradient(linear, left top, right top, from(#008c0b), color-stop(75%, #4eff7c), to(#deece3));
+  background: linear-gradient(90deg, #008c0b 0%, #4eff7c 75%, #deece3 100%);
 }
 
 input[type="checkbox"]:checked + .custom-checkbox img {

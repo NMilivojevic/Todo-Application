@@ -5,11 +5,7 @@ input[type="checkbox"] {
 }
 
 input[type="checkbox"]:checked + .custom-checkbox {
-  background: linear-gradient(
-    to bottom,
-    $linear-gradient-cyan,
-    $linear-gradient-purple
-  );
+  background: linear-gradient(90deg, rgba(0,140,11,1) 0%, rgba(78,255,124,1) 75%, rgba(222,236,227,1) 100%);
 
   img {
     opacity: 1;
